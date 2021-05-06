@@ -1,3 +1,5 @@
+--psql -U postgres < schema.sql
+
 DROP DATABASE IF EXISTS author_sales;
 
 CREATE DATABASE author_sales;
