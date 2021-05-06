@@ -46,4 +46,4 @@ const getOne = (name, callback) => {
   });
 };
 
-module.exports = {getTotals, getOne};
+module.exports = { getTotals, getOne };

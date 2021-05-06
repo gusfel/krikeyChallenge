@@ -1,9 +1,11 @@
 const express = require('express');
+
 const app = express();
 const port = 3000;
 
-const NodeCache = require( 'node-cache' );
-const myCache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
+const NodeCache = require('node-cache');
+
+const myCache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 
 const queries = require('./queries.js');
 
@@ -11,7 +13,7 @@ app.get('/author', (request, response) => {
   const authorName = request.query.author_name;
 
   if (authorName) {
-    const value = myCache.get( authorName );
+    const value = myCache.get(authorName);
     if (value) {
       response.send(value);
     } else {
