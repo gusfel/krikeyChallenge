@@ -18,7 +18,7 @@ const getTotals = (callback) => {
       if (err2) {
         throw err2;
       } else {
-        callback(null, res.rows);
+        callback(null, res.rows, 'top10');
       }
     });
   });
@@ -40,7 +40,7 @@ const getOne = (name, callback) => {
       if (err2) {
         throw err2;
       } else {
-        callback(null, res.rows);
+        callback(null, res.rows, name);
       }
     });
   });
