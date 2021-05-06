@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const db = require('./db.js');
-const getTotals = require('./queries.js');
+const queries = require('./queries.js');
 // app.get('/', (req, res) => {
 //   res.send('Hello World!');
 // });
@@ -11,14 +10,25 @@ const getTotals = require('./queries.js');
 app.get('/author', (request, response) => {
   // console.log(request.query)
   const authorName = request.query.author_name;
-  getTotals(authorName, (err, data) => {
-    if (err) { console.log(err); }
-    if (data.length) {
-      response.send(data);
-    } else {
-      response.status(404).send('Not Found');
-    }
-  });
+  if (authorName) {
+    queries.getOne(authorName, (err, data) => {
+      if (err) { console.log(err); }
+      if (data.length) {
+        response.send(data);
+      } else {
+        response.status(404).send('Not Found');
+      }
+    });
+  } else {
+    queries.getTotals((err, data) => {
+      if (err) { console.log(err); }
+      if (data.length) {
+        response.send(data);
+      } else {
+        response.status(404).send('Not Found');
+      }
+    });
+  }
 });
 
 app.listen(port, () => {
