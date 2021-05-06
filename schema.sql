@@ -23,3 +23,9 @@ CREATE TABLE sale_items (
   item_price money,
   quantity integer
 );
+
+\copy authors(name, date_of_birth) FROM './sampleData/authors.csv' DELIMITER ',' CSV HEADER;
+
+\copy books(author_id, isbn) FROM './sampleData/books.csv' DELIMITER ',' CSV HEADER;
+
+\copy sale_items(book_id, customer_name, item_price, quantity) FROM './sampleData/sale_items.csv' DELIMITER ',' CSV HEADER;
