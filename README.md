@@ -30,29 +30,19 @@ FROM (
       WHERE name LIKE 'Lorelai Gilmore'
     )
   )
-);
+) as foo;
 
 3. What are the top 10 performing authors, ranked by sales revenue?
 SELECT
 authors.id,
-books.id,
-sale_items.item_price * sale_items.quantity as sale_total
+authors.name,
+SUM(sale_items.item_price * sale_items.quantity) as sale_total
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
 GROUP BY authors.id
 ORDER BY sale_total desc
 LIMIT 10;
-
-SELECT
-authors.id,
-books.id,
-sale_items.item_price,
-sale_items.quantity
-FROM authors
-LEFT JOIN books on books.author_id = authors.id
-LEFT JOIN sale_items on sale_items.book_id = books.id
-
 
 Part 2A: Write an API Endpoint
 
