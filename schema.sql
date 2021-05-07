@@ -31,3 +31,7 @@ CREATE TABLE sale_items (
 \copy books(author_id, isbn) FROM './sampleData/books.csv' DELIMITER ',' CSV HEADER;
 
 \copy sale_items(book_id, customer_name, item_price, quantity) FROM './sampleData/sale_items.csv' DELIMITER ',' CSV HEADER;
+
+CREATE INDEX author_index ON authors (name);
+CREATE INDEX book_index ON books (author_id);
+CREATE INDEX sale_index ON sale_items (book_id);
