@@ -57,7 +57,7 @@ LIMIT 10;
 In order to start the endpoint locally do the following
   1. Fork then clone the repo to your local computer
   2. Run `npm install`
-  3. Run `psql -U [your postgres username] < schema.sql`
+  3. Run `psql -U [your postgres username] < database/schema.sql`
   4. Run `npm start`
 
 You will then be able to query the server using `localhost:3000`.  
