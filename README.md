@@ -69,4 +69,4 @@ In order to optimize performance I added a Node Cache caching system and indexes
 
 ## Part 3: Build Docker Container and steps to deploy
 Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image, but I came pretty close.  
-On the [docker branch](https://github.com/gusfel/krikeyChallenge/tree/docker) of this repo is my attempt.  If you switch to this branch and run `docker-compose up` the server and database images will run and you will be able to use `localhost:3000` the same as in part 2A.  I believe that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
+My attempt at creating the image is on the [docker branch](https://github.com/gusfel/krikeyChallenge/tree/docker) of this repo.  If you switch to this branch and run `docker-compose up` the server and database images will run and you will be able to use `localhost:3000` the same as in part 2A.  I believe that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
