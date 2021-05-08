@@ -40,6 +40,7 @@ In order to start the endpoint locally do the following
   2. Run `npm install`
   3. Run `psql -U [your postgres username] < schema.sql`
   4. Run `npm start`
+
 You will then be able to run the server using `localhost:3000/author` for a list of the top 10 best selling authors and `localhost:3000/author?author_name=[author name]` for the total sales of an author.  Try using "Steven King" or "JK Rowling".
 
 ## Part 2B: API Performance
