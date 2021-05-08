@@ -10,7 +10,7 @@ const myCache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 const queries = require('./queries.js');
 
 app.get('/author', (request, response) => {
-  const authorName = request.query.author_name.toLowerCase();
+  const authorName = request.query.author_name;
   const sendData = (err, data, key) => {
     if (err) { throw err; }
     if (data.length) {
@@ -22,7 +22,7 @@ app.get('/author', (request, response) => {
   };
 
   if (authorName) {
-    const value = myCache.get(authorName);
+    const value = myCache.get(authorName.toLowerCase());
     if (value) {
       response.send(value);
     } else {
