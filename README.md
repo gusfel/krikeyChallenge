@@ -5,7 +5,7 @@
 1. Who are the first 10 authors ordered by date_of_birth?
 ```sql
 SELECT
-*  
+*
 FROM authors
 ORDER BY date_of_birth
 LIMIT 10;

@@ -24,11 +24,11 @@ CREATE TABLE sale_items (
   quantity integer
 );
 
-\copy authors(name, date_of_birth) FROM './database/sampleData/authors.csv' DELIMITER ',' CSV HEADER;
+\copy authors(name, date_of_birth) FROM './sampleData/authors.csv' DELIMITER ',' CSV HEADER;
 
-\copy books(author_id, isbn) FROM './database/sampleData/books.csv' DELIMITER ',' CSV HEADER;
+\copy books(author_id, isbn) FROM './sampleData/books.csv' DELIMITER ',' CSV HEADER;
 
-\copy sale_items(book_id, customer_name, item_price, quantity) FROM './database/sampleData/sale_items.csv' DELIMITER ',' CSV HEADER;
+\copy sale_items(book_id, customer_name, item_price, quantity) FROM './sampleData/sale_items.csv' DELIMITER ',' CSV HEADER;
 
 CREATE INDEX author_index ON authors (name);
 CREATE INDEX book_index ON books (author_id);
