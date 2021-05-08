@@ -1,11 +1,30 @@
 # krikeyChallenge
 
 ## Part 1: SQL Challenge
-### Write statements to answer each of the following questions:
+### Write statements to answer each of the following questions using the following schema:
+```sql
+CREATE TABLE authors ( 
+  id serial PRIMARY KEY, 
+  name text, 
+  date_of_birth timestamp 
+); 
+CREATE TABLE books ( 
+  id serial PRIMARY KEY, 
+  author_id integer REFERENCES authors (id), 
+  isbn text
+); 
+CREATE TABLE sale_items ( 
+  id serial PRIMARY KEY, 
+  book_id integer REFERENCES books (id), 
+  customer_name text, 
+  item_price money, 
+  quantity integer 
+); 
+```
 1. Who are the first 10 authors ordered by date_of_birth?
 ```sql
 SELECT
-*  
+  *  
 FROM authors
 ORDER BY date_of_birth
 LIMIT 10;
@@ -14,7 +33,7 @@ LIMIT 10;
 2. What is the sales total for the author named “Lorelai Gilmore”?
 ```sql
 SELECT
-SUM(sale_items.item_price * sale_items.quantity) as sale_total
+  SUM(sale_items.item_price * sale_items.quantity) as sale_total
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
@@ -24,9 +43,9 @@ WHERE authors.name LIKE 'Lorelai Gilmore';
 3. What are the top 10 performing authors, ranked by sales revenue?
 ```sql
 SELECT
-authors.id,
-authors.name,
-SUM(sale_items.item_price * sale_items.quantity) as total_sales
+  authors.id,
+  authors.name,
+  SUM(sale_items.item_price * sale_items.quantity) as total_sales
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
