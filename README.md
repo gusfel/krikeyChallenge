@@ -29,11 +29,12 @@ FROM authors
 ORDER BY date_of_birth
 LIMIT 10;
 ```
+(as shown is ordered from youngest to oldest, update `LIMIT 10` to `LIMIT 10 ASC` for oldest to youngest)
 
 2. What is the sales total for the author named “Lorelai Gilmore”?
 ```sql
 SELECT
-  SUM(sale_items.item_price * sale_items.quantity) as sale_total
+  SUM(sale_items.item_price * sale_items.quantity) as total_sales
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
