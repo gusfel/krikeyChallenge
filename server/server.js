@@ -9,6 +9,10 @@ const myCache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 
 const queries = require('./queries.js');
 
+// app.get('/hi', (req, res) => {
+//   res.send('hello!')
+// })
+
 app.get('/author', (request, response) => {
   const authorName = request.query.author_name.toLowerCase();
   const sendData = (err, data, key) => {
