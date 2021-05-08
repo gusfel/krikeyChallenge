@@ -34,5 +34,15 @@ ORDER BY sale_total DESC
 LIMIT 10;
 
 Part 2A: Write an API Endpoint
+In order to start the endpoint locally do the following
+  1. Clone the repo to your local computer
+  2. Run "npm install"
+  3. Run "psql -U [your postgres username] < schema.sql"
+  4. Run "npm start"
+  5. You will then be able to run the server using localhost:3000/author for a list of the top 10 best selling authors and localhost:3000/author?author_name=[author name] for the total sales of an author.  Try using "steven king" or "jk rowling".
 
 Part 2B: API Performance
+In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the schema.sql file and are automatically added to the database when it is set up in step 3 of Part 2A.
+
+Part 3: Build Docker Container and steps to deploy
+I currently don't know how to set up docker images, but know that I could have figured it out if given more time.  I was going to attempt to set up a Dockerfile, but didn't want to give you a
