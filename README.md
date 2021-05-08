@@ -68,4 +68,4 @@ In order to optimize performance I added a Node Cache caching system and indexes
 * I didn't test response times before adding the indexes to know their effect, but from past projects it was always better to add them.
 
 ## Part 3: Build Docker Container and steps to deploy
-Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image, but I came pretty close.  I believe that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
+Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image that could be shared or deployed, but I came pretty close.  I know that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
