@@ -68,4 +68,5 @@ You will then be able to query the server using `localhost:3000`.
 In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the [schema.sql](https://github.com/gusfel/krikeyChallenge/blob/main/database/schema.sql) file and are automatically added to the database when it is set up in step 3 of Part 2A.
 
 ## Part 3: Build Docker Container and steps to deploy
-I currently don't know how to set up Docker images, but know that I could have figured it out if given more time.  I was going to attempt to set up a Dockerfile, but didn't want to give you an complete or incorrect product.
+Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image, but I came pretty close.  
+My attempt at creating the image is on the [docker branch](https://github.com/gusfel/krikeyChallenge/tree/docker) of this repo.  If you switch to this branch and run `docker-compose up` the server and database images will run and you will be able to use `localhost:3000` the same as in part 2A.  I believe that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
