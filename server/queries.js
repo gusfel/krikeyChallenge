@@ -1,5 +1,6 @@
 const db = require('./db.js');
 
+// gets top 10 best selling authors ordered by sales
 const getTotals = (callback) => {
   db.connect((err, client, done) => {
     if (err) { throw err; }
@@ -24,6 +25,7 @@ const getTotals = (callback) => {
   });
 };
 
+// gets total sales for a given author
 const getOne = (name, callback) => {
   db.connect((err, client, done) => {
     if (err) { throw err; }

@@ -11,6 +11,7 @@ const queries = require('./queries.js');
 
 app.get('/author', (request, response) => {
   const authorName = request.query.author_name;
+  // callback function to send data from DB queries
   const sendData = (err, data, key) => {
     if (err) { throw err; }
     if (data.length) {
