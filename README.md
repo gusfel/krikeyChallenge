@@ -1,48 +1,49 @@
 # krikeyChallenge
 
-Part 1: SQL Challenge
-Write statements to answer each of the following questions.
+## Part 1: SQL Challenge
+### Write statements to answer each of the following questions.
 1. Who are the first 10 authors ordered by date_of_birth?
-
+```sql
 SELECT
-*
-FROM (SELECT
-  *
-  FROM authors
-  LIMIT 10)
-ORDER BY date_of_birth;
+*  
+FROM authors
+ORDER BY date_of_birth
+LIMIT 10;
+```
 
 2. What is the sales total for the author named “Lorelai Gilmore”?
+```sql
 SELECT
 SUM(sale_items.item_price * sale_items.quantity) as sale_total
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
 WHERE authors.name LIKE 'Lorelai Gilmore';
-
+```
 
 3. What are the top 10 performing authors, ranked by sales revenue?
+```sql
 SELECT
 authors.id,
 authors.name,
-SUM(sale_items.item_price * sale_items.quantity) as sale_total
+SUM(sale_items.item_price * sale_items.quantity) as total_sales
 FROM authors
 LEFT JOIN books on books.author_id = authors.id
 LEFT JOIN sale_items on sale_items.book_id = books.id
 GROUP BY authors.id
 ORDER BY sale_total DESC
 LIMIT 10;
-
-Part 2A: Write an API Endpoint
+```
+## Part 2A: Write an API Endpoint
 In order to start the endpoint locally do the following
   1. Clone the repo to your local computer
-  2. Run "npm install"
-  3. Run "psql -U [your postgres username] < schema.sql"
-  4. Run "npm start"
+  2. Run `npm install`
+  3. Run `psql -U [your postgres username] < schema.sql`
+  4. Run `npm start`
   5. You will then be able to run the server using localhost:3000/author for a list of the top 10 best selling authors and localhost:3000/author?author_name=[author name] for the total sales of an author.  Try using "steven king" or "jk rowling".
 
-Part 2B: API Performance
+## Part 2B: API Performance
 In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the schema.sql file and are automatically added to the database when it is set up in step 3 of Part 2A.
 
-Part 3: Build Docker Container and steps to deploy
+## Part 3: Build Docker Container and steps to deploy
 I currently don't know how to set up docker images, but know that I could have figured it out if given more time.  I was going to attempt to set up a Dockerfile, but didn't want to give you a
