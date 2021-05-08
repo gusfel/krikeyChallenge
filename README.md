@@ -65,7 +65,9 @@ You will then be able to query the server using `localhost:3000`.
 * Use `localhost:3000/author?author_name=[author name]` for the total sales of an author.  Try using "Steven King" or "JK Rowling".
 
 ## Part 2B: API Performance
-In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the [schema.sql](https://github.com/gusfel/krikeyChallenge/blob/main/database/schema.sql) file and are automatically added to the database when it is set up in step 3 of Part 2A.
+In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the [schema.sql](https://github.com/gusfel/krikeyChallenge/blob/main/database/schema.sql) file and are automatically added to the database when it is set up in step 3 of Part 2A.  
+* The cache brings the response time down from aroun 60ms on the initial request to 5ms on subsequent requests.  
+* I didn't test response times before adding the indexes to know their effect, but from past projects it was always better to add them.
 
 ## Part 3: Build Docker Container and steps to deploy
 Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image, but I came pretty close.  
