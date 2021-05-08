@@ -66,7 +66,7 @@ You will then be able to query the server using `localhost:3000`.
 ## Part 2B: API Performance
 In order to optimize performance I added a Node Cache caching system and indexes to the database.  These indexes are in the [schema.sql](https://github.com/gusfel/krikeyChallenge/blob/main/database/schema.sql) file and are automatically added to the database when it is created in step 2 of Part 2A.  
 * The cache brings the response time down from around 100ms on the initial request to less than 10ms on subsequent requests.  
-* I didn't test response times before adding the indexes to know their effect, but from past projects it was always better to add them.
+* I didn't test response times before adding the indexes to know their effect, but in past projects indexing improved query times dramatically.
 
 ## Part 3: Build Docker Container and steps to deploy
 Before this project I didn't know how to use Docker so this was a learning experience.  I wasn't able to create an image that could be shared or deployed, but I came pretty close.  I know that with more time I would have been able to create a proper docker image for this database and deploy it on an EC2 instance.
