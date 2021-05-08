@@ -1,4 +1,4 @@
-const db = require('../database/db.js');
+const db = require('./db.js');
 
 const getTotals = (callback) => {
   db.connect((err, client, done) => {
