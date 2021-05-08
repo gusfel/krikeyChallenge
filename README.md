@@ -1,7 +1,7 @@
 # krikeyChallenge
 
 ## Part 1: SQL Challenge
-### Write statements to answer each of the following questions.
+### Write statements to answer each of the following questions:
 1. Who are the first 10 authors ordered by date_of_birth?
 ```sql
 SELECT
